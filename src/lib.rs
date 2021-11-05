@@ -102,16 +102,19 @@ pub use crate::{
 
 /// A potential output from `Cmp`, this is the type equivalent to the enum variant
 /// `core::cmp::Ordering::Greater`.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Greater;
 
 /// A potential output from `Cmp`, this is the type equivalent to the enum variant
 /// `core::cmp::Ordering::Less`.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Less;
 
 /// A potential output from `Cmp`, this is the type equivalent to the enum variant
 /// `core::cmp::Ordering::Equal`.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Equal;
 

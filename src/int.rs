@@ -37,12 +37,14 @@ use crate::{
 use core::ops::{Add, Div, Mul, Neg, Rem, Sub};
 
 /// Type-level signed integers with positive sign.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct PInt<U: Unsigned + NonZero> {
     pub(crate) n: U,
 }
 
 /// Type-level signed integers with negative sign.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct NInt<U: Unsigned + NonZero> {
     pub(crate) n: U,
@@ -65,6 +67,7 @@ impl<U: Unsigned + NonZero> NInt<U> {
 }
 
 /// The type-level signed integer 0.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Z0;
 

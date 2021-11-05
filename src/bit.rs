@@ -15,6 +15,7 @@ use core::ops::{BitAnd, BitOr, BitXor, Not};
 pub use crate::marker_traits::Bit;
 
 /// The type-level bit 0.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct B0;
 
@@ -27,6 +28,7 @@ impl B0 {
 }
 
 /// The type-level bit 1.
+#[cfg_attr(feature = "derive-scale-info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct B1;
 
