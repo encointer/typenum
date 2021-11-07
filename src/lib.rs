@@ -190,15 +190,13 @@ mod sealed {
 mod tests {
     use crate::{
         bit::{B0, B1},
-        UInt, UTerm,
+        UInt, UTerm, U64,
     };
     use scale_info::TypeInfo;
-
-    type U6 = UInt<UInt<UInt<UTerm, B1>, B1>, B0>;
 
     #[test]
     fn scale_info_works() {
         // it suffices if that code compiles
-        U6::type_info();
+        U64::type_info();
     }
 }
