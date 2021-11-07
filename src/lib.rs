@@ -102,16 +102,19 @@ pub use crate::{
 
 /// A potential output from `Cmp`, this is the type equivalent to the enum variant
 /// `core::cmp::Ordering::Greater`.
+#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Greater;
 
 /// A potential output from `Cmp`, this is the type equivalent to the enum variant
 /// `core::cmp::Ordering::Less`.
+#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Less;
 
 /// A potential output from `Cmp`, this is the type equivalent to the enum variant
 /// `core::cmp::Ordering::Equal`.
+#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Equal;
 
@@ -181,4 +184,19 @@ mod sealed {
 
     impl Sealed for ATerm {}
     impl<V, A> Sealed for TArr<V, A> {}
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::{
+        bit::{B0, B1},
+        UInt, UTerm, U64,
+    };
+    use scale_info::TypeInfo;
+
+    #[test]
+    fn scale_info_works() {
+        // it suffices if that code compiles
+        U64::type_info();
+    }
 }
