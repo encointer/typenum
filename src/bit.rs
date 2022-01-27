@@ -11,11 +11,15 @@
 
 use crate::{private::InternalMarker, Cmp, Equal, Greater, Less, NonZero, PowerOfTwo, Zero};
 use core::ops::{BitAnd, BitOr, BitXor, Not};
+use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 pub use crate::marker_traits::Bit;
 
 /// The type-level bit 0.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct B0;
 
@@ -28,7 +32,10 @@ impl B0 {
 }
 
 /// The type-level bit 1.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct B1;
 
