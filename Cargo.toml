@@ -21,10 +21,11 @@
   name = "typenum"
 
 [dependencies]
-  scale-info = { version = "1.0.0", default-features = false, features = ["derive"], optional = true }
+scale-info = { version = "1.0.0", default-features = false, features = ["derive"], optional = true }
+parity-scale-codec = { version = "2.3.1", default-features = false, features = ["derive", "max-encoded-len"], optional = true }
 
 [features]
-  derive_scale_info = ["scale-info"]
+  derive_scale = ["scale-info", "parity-scale-codec"]
   no_std = []
   i128 = []
   strict = []

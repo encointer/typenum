@@ -3,11 +3,16 @@
 //! It is not very featureful right now, and should be considered a work in progress.
 
 use core::ops::{Add, Div, Mul, Sub};
+#[cfg(feature = "derive_scale")]
+use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 use super::*;
 
 /// The terminating type for type arrays.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug)]
 pub struct ATerm;
 
@@ -19,7 +24,10 @@ impl TypeArray for ATerm {}
 ///
 /// This array is only really designed to contain `Integer` types. If you use it with others, you
 /// may find it lacking functionality.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug)]
 pub struct TArr<V, A> {
     first: V,

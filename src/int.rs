@@ -35,16 +35,24 @@ use crate::{
     Cmp, Equal, Greater, Less, NonZero, Pow, PowerOfTwo, ToInt, Zero,
 };
 use core::ops::{Add, Div, Mul, Neg, Rem, Sub};
+#[cfg(feature = "derive_scale")]
+use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 /// Type-level signed integers with positive sign.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct PInt<U: Unsigned + NonZero> {
     pub(crate) n: U,
 }
 
 /// Type-level signed integers with negative sign.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct NInt<U: Unsigned + NonZero> {
     pub(crate) n: U,
@@ -67,7 +75,10 @@ impl<U: Unsigned + NonZero> NInt<U> {
 }
 
 /// The type-level signed integer 0.
-#[cfg_attr(feature = "derive_scale_info", derive(scale_info::TypeInfo))]
+#[cfg_attr(
+    feature = "derive_scale",
+    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+)]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Z0;
 
