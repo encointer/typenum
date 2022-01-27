@@ -35,6 +35,7 @@ use crate::{
     Cmp, Equal, Greater, Less, NonZero, Pow, PowerOfTwo, ToInt, Zero,
 };
 use core::ops::{Add, Div, Mul, Neg, Rem, Sub};
+#[cfg(feature = "derive_scale")]
 use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 /// Type-level signed integers with positive sign.

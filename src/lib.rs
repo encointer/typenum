@@ -66,6 +66,7 @@
 // trace_macros!(true);
 
 use core::cmp::Ordering;
+#[cfg(feature = "derive_scale")]
 use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 #[cfg(feature = "force_unix_path_separator")]
@@ -197,11 +198,9 @@ mod sealed {
 }
 
 #[cfg(test)]
+#[cfg(feature = "derive_scale")]
 mod tests {
-    use crate::{
-        bit::{B0, B1},
-        UInt, UTerm, U64,
-    };
+    use crate::U64;
     use scale_info::TypeInfo;
 
     #[test]

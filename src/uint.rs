@@ -40,6 +40,7 @@ use crate::{
     SquareRoot, Sub1, Sum, ToInt, Zero,
 };
 use core::ops::{Add, BitAnd, BitOr, BitXor, Mul, Shl, Shr, Sub};
+#[cfg(feature = "derive_scale")]
 use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 pub use crate::marker_traits::{PowerOfTwo, Unsigned};

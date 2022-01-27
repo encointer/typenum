@@ -11,6 +11,7 @@
 
 use crate::{private::InternalMarker, Cmp, Equal, Greater, Less, NonZero, PowerOfTwo, Zero};
 use core::ops::{BitAnd, BitOr, BitXor, Not};
+#[cfg(feature = "derive_scale")]
 use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 pub use crate::marker_traits::Bit;

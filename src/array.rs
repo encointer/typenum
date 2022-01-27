@@ -3,6 +3,7 @@
 //! It is not very featureful right now, and should be considered a work in progress.
 
 use core::ops::{Add, Div, Mul, Sub};
+#[cfg(feature = "derive_scale")]
 use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
 
 use super::*;
