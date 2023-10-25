@@ -1,24 +1,26 @@
 [package]
-  name = "typenum"
+  name = "substrate-typenum"
   build = "build/main.rs"
   version = "1.16.0" # remember to update html_root_url
   authors = [
     "Paho Lurie-Gregg <paho@paholg.com>",
-    "Andre Bogus <bogusandre@gmail.com>"
+    "Andre Bogus <bogusandre@gmail.com>",
+    "Encointer Association <info@encointer.org>",
   ]
   documentation = "https://docs.rs/typenum"
-  repository = "https://github.com/paholg/typenum"
+  repository = "https://github.com/encointer/typenum"
   readme = "README.md"
   license = "MIT OR Apache-2.0"
   description = """Typenum is a Rust library for type-level numbers evaluated at
     compile time. It currently supports bits, unsigned integers, and signed
     integers. It also provides a type-level array of type-level numbers, but its
-    implementation is incomplete."""
+    implementation is incomplete.
+    This substrate-typenum fork just adds SCALE codec derive for use with substrate"""
   categories = ["no-std"]
   edition = "2018"
 
 [lib]
-  name = "typenum"
+  name = "substrate_typenum"
 
 [dependencies]
 scale-info = { version = "2.5.0", default-features = false, features = ["derive"], optional = true }
