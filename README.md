@@ -1,8 +1,9 @@
-[![crates.io](https://img.shields.io/crates/v/typenum.svg)](https://crates.io/crates/typenum)
-[![Build Status](https://github.com/paholg/typenum/actions/workflows/check.yml/badge.svg)](https://github.com/paholg/typenum/actions/workflows/check.yml)
+[![crates.io](https://img.shields.io/crates/v/substrate-typenum.svg)](https://crates.io/crates/substrate-typenum)
 
-Typenum
+Typenum for Substrate
 =====
+
+**This is a fork which derives SCALE codec info for use with parity substrate** 
 
 Typenum is a Rust library for type-level numbers evaluated at compile time. It
 currently supports bits, unsigned integers, and signed integers.
