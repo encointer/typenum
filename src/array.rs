@@ -4,14 +4,14 @@
 
 use core::ops::{Add, Div, Mul, Sub};
 #[cfg(feature = "derive_scale")]
-use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
+use parity_scale_codec::{Decode, DecodeWithMemTracking, Encode, MaxEncodedLen};
 
 use super::*;
 
 /// The terminating type for type arrays.
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug)]
 pub struct ATerm;
@@ -26,7 +26,7 @@ impl TypeArray for ATerm {}
 /// may find it lacking functionality.
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug)]
 pub struct TArr<V, A> {

@@ -67,7 +67,7 @@
 
 use core::cmp::Ordering;
 #[cfg(feature = "derive_scale")]
-use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
+use parity_scale_codec::{Decode, DecodeWithMemTracking, Encode, MaxEncodedLen};
 
 #[cfg(feature = "force_unix_path_separator")]
 mod generated {
@@ -106,7 +106,7 @@ pub use crate::{
 /// `core::cmp::Ordering::Greater`.
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Greater;
@@ -115,7 +115,7 @@ pub struct Greater;
 /// `core::cmp::Ordering::Less`.
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Less;
@@ -124,7 +124,7 @@ pub struct Less;
 /// `core::cmp::Ordering::Equal`.
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct Equal;

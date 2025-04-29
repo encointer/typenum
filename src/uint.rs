@@ -41,7 +41,7 @@ use crate::{
 };
 use core::ops::{Add, BitAnd, BitOr, BitXor, Mul, Shl, Shr, Sub};
 #[cfg(feature = "derive_scale")]
-use parity_scale_codec::{Decode, Encode, MaxEncodedLen};
+use parity_scale_codec::{Decode, DecodeWithMemTracking, Encode, MaxEncodedLen};
 
 pub use crate::marker_traits::{PowerOfTwo, Unsigned};
 
@@ -49,7 +49,7 @@ pub use crate::marker_traits::{PowerOfTwo, Unsigned};
 /// bit. `UTerm` by itself represents zero, which is aliased to `U0`.
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct UTerm;
@@ -150,7 +150,7 @@ impl Unsigned for UTerm {
 /// ```
 #[cfg_attr(
     feature = "derive_scale",
-    derive(scale_info::TypeInfo, Decode, Encode, MaxEncodedLen)
+    derive(scale_info::TypeInfo, Decode, DecodeWithMemTracking, Encode, MaxEncodedLen)
 )]
 #[derive(Eq, PartialEq, Ord, PartialOrd, Clone, Copy, Hash, Debug, Default)]
 pub struct UInt<U, B> {
